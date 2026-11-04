@@ -1,0 +1,13 @@
+# Dados brutos do Olist (acima do limite de 100 MB do GitHub)
+*.csv
+*.zip
+
+# Arquivos temporários do Office / Power BI
+~$*
+*.tmp
+*.pbi_backup
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
