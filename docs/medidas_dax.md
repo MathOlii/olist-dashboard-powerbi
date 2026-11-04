@@ -100,7 +100,18 @@ DIVIDE([Receita] - [Receita Mês Anterior], [Receita Mês Anterior])
 Média das notas de avaliação. Cada pedido já tem uma única nota (a média das avaliações dele), calculada no Power Query.
 
 ```dax
-Nota Média = AVERAGE(reviews[nota_media])
+Nota Média =
+CALCULATE(
+    AVERAGE(reviews[nota_media]),
+    CROSSFILTER(order_items[order_id], orders[order_id], BOTH)
+)
+```
+
+### Status de Entregas
+
+```dax
+Status Entrega =
+SWITCH(orders[Entregue no Prazo], 1, "No prazo", 0, "Atrasado", BLANK())
 ```
 
 ### % Entregas no Prazo
